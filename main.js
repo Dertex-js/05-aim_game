@@ -1,3 +1,4 @@
+const colors = ["#FFFF66", "#FFCC33", "#CC9966", "#FF6600", "#FF3300", "#FF0066", "#FF66FF", "#6600CC", "#00CCFF", "#33FFCC", "#00FF00"]
 const startBtn = document.querySelector("#start")
 const screens = document.querySelectorAll(".screen")
 const timeList = document.querySelector("#time-list")
@@ -63,6 +64,7 @@ function createRandomCircle() {
     const y = getRandomCircleRate(0, height - size)
 
     circle.classList.add("circle")
+    circle.style.backgroundColor = getRandomColor()
     circle.style.width = `${size}px`
     circle.style.height = `${size}px`
     circle.style.top = `${y}px`
@@ -73,4 +75,9 @@ function createRandomCircle() {
 
 function getRandomCircleRate(min, max) {
     return Math.round(Math.random() * (max - min) + min)
+}
+
+function getRandomColor() {
+    const index = Math.floor(Math.random() * colors.length)
+    return colors[index]
 }
